@@ -14,6 +14,7 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
+    
     public function handle($request, Closure $next)
     {
         if (Auth::check() && (Auth::user()->user_type == 'admin' || Auth::user()->user_type == 'staff')) {

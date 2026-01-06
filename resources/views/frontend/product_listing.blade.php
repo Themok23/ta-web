@@ -1,5 +1,4 @@
 @extends('frontend.layouts.app')
-
 @php
     $form_all_preorder_page = session('preorder_all_page');
     session()->forget('preorder_all_page');

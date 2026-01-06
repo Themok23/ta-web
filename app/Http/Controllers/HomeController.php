@@ -67,6 +67,10 @@ class HomeController extends Controller
         return view('frontend.' . get_setting('homepage_select') . '.partials.todays_deal', compact('todays_deal_products'));
     }
 
+
+    public function about(){
+        return view('frontend.about.about');
+    }
     public function load_newest_product_section(Request $request)
     {
         $limit = 12;
@@ -558,7 +562,7 @@ class HomeController extends Controller
     {
         $categories = Category::with('childrenCategories')->where('parent_id', 0)->orderBy('order_level', 'desc')->get();
 
-        // dd($categories);
+        //  dd($categories);
         return view('frontend.all_category', compact('categories'));
     }
 

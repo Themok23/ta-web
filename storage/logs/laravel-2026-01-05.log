@@ -1,0 +1,152 @@
+[2026-01-05 18:50:25] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:50:25] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:51:14] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:51:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:51:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:52:44] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:53:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:54:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:55:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:56:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:57:44] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:58:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 18:59:44] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 19:01:34] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 19:01:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 19:02:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 19:03:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 19:04:43] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 
+[2026-01-05 19:07:10] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at E:\\Core Code\\ta-web\\ta-web\\app\\Models\\FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(244): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot declare...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(231): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:E:\\Core Code\\ta-web\\ta-web\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:254-256}()
+#4 {main}
+"} 

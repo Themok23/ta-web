@@ -52,7 +52,6 @@ class CategoryController extends Controller
             ->where('digital', 0)
             ->with('childrenCategories')
             ->get();
-
         return view('backend.product.categories.create', compact('categories'));
     }
 
@@ -63,7 +62,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request)
-    {
+    {   
         $category = new Category;
         $category->name = $request->name;
         $category->order_level = 0;

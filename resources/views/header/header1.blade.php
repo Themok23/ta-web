@@ -649,7 +649,7 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-xl-start h-100">
                         <ul class="list-inline mb-0 pl-0 hor-swipe c-scrollbar-light">
                             @if (get_setting('header_menu_labels') != null)
-                                @foreach (json_decode(get_setting('header_menu_labels'), true) as $key => $value)
+                                 @foreach (json_decode(get_setting('header_menu_labels'), true) as $key => $value)
                                     <li class="list-inline-item mr-0 animate-underline-white">
                                         <a href="{{ json_decode(get_setting('header_menu_links'), true)[$key] }}"
                                             class="fs-13 px-3 py-3 d-inline-block fw-700 header_menu_links hov-bg-black-10 bottom-text-color-visibility

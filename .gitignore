@@ -33,5 +33,6 @@ install.zip
 /public/app-translations
 public/uploads.zip
 .env
+.env.example
 public/all
 

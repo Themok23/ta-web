@@ -525,6 +525,33 @@
                         </ul>
                     </li>
                 @endcanany
+@canany(['view_notes', 'add_note'])
+    <li class="aiz-side-nav-item">
+        <a href="#" class="aiz-side-nav-link">
+            <div class="aiz-side-nav-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16.001" viewBox="0 0 16 16.001">
+                    <path d="M.333,16A.315.315,0,0,1,0,15.668V.335A.315.315,0,0,1,.333,0h9.31a.285.285,0,0,1,.123.014A.318.318,0,0,1,9.9.1l2.667,2.667.009.01a.293.293,0,0,1,.079.132.274.274,0,0,1,.012.112V5.835l1.267-1.267a.322.322,0,0,1,.466,0l1.5,1.5a.322.322,0,0,1,0,.466L12.667,9.768v5.9a.315.315,0,0,1-.333.333Z" fill="#575b6a"/>
+                </svg>
+            </div>
+
+            <span class="aiz-side-nav-text">{{ translate('Settings') }}</span>
+            <span class="aiz-side-nav-arrow"></span>
+        </a>
+
+        <!-- Submenu -->
+        <ul class="aiz-side-nav-list level-2">
+
+            {{-- About Us --}}
+            <li class="aiz-side-nav-item">
+                <a class="aiz-side-nav-link" href="{{ route('settings.about-us') }}">
+                    <span class="aiz-side-nav-text">{{ translate('About Us') }}</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+@endcanany
+
 
                 <!-- Auction Product -->
                 @if(addon_is_activated('auction'))

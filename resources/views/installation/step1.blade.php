@@ -93,7 +93,7 @@
                             @endif
                         </li>
                     </ul>
-                    
+
                     <div class="d-flex mt-3">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

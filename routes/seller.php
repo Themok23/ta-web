@@ -4,6 +4,7 @@ use App\Http\Controllers\AizUploadController;
 use App\Http\Controllers\Seller\CustomLabelController;
 use App\Http\Controllers\Seller\DashboardController;
 use App\Http\Controllers\Seller\GSTController;
+use App\Http\Controllers\Seller\ProductController;
 
 //Upload
 Route::group(['prefix' => 'seller', 'middleware' => ['seller', 'verified', 'user', 'prevent-back-history'], 'as' => 'seller.'], function () {

@@ -67,6 +67,7 @@ use App\Http\Controllers\NewUpdateController;
 use App\Http\Controllers\PickupController;
 use App\Http\Controllers\ShippingBoxSizeController;
 use App\Http\Controllers\ShippingSystemController;
+use App\Http\Controllers\Admin\Setting\AboutUsController;
 
 /*
   |--------------------------------------------------------------------------
@@ -94,7 +95,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
     Route::controller(CybersourceSettingController::class)->group(function () {
         Route::get('/cybersource-configuration', 'configuration')->name('cybersource_configuration');
     });
-    
+
     // category
     Route::resource('categories', CategoryController::class);
     Route::controller(CategoryController::class)->group(function () {
@@ -103,7 +104,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
         Route::post('/categories/featured', 'updateFeatured')->name('categories.featured');
         Route::post('/categories/hot', 'updateHot')->name('categories.hot');
         Route::post('/categories/categoriesByType', 'categoriesByType')->name('categories.categories-by-type');
-      
+
         //category-wise commission
         Route::get('/categories-wise-commission', 'categoriesWiseCommission')->name('categories_wise_commission');
         Route::post('/categories-wise-commission', 'categoriesWiseCommissionUpdate')->name('categories_wise_commission.update');
@@ -252,7 +253,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
         Route::get('/sellers/registration/pending', 'pendingSellers')->name('sellers.registration_pending');
         Route::post('/sellers/registration/approve', 'UpdateSellerRegistration')->name('sellers.registration.approved');
         Route::get('/sellers/profile/{id}', 'sellerProfile')->name('sellers.profile');
-        Route::get('/sellers/profile/tab/data/{shop}',  'getSellerProfileTab')->name('sellers.profile.tab');
+        Route::get('/sellers/profile/tab/data/{shop}', 'getSellerProfileTab')->name('sellers.profile.tab');
         Route::get('seller-suspicious/{seller}', 'suspicious')->name('seller.suspicious');
         Route::get('/seller/verification-file/delete', 'deleteVerificationFile')->name('seller.verification.file.delete');
     });
@@ -415,7 +416,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
     });
 
 
-     // website setting
+    // website setting
     Route::group(['prefix' => 'website'], function () {
         Route::controller(WebsiteController::class)->group(function () {
             Route::post('/get-upload-file-name', 'getFileName');
@@ -615,6 +616,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
         Route::get('conversations/{id}/show', 'admin_show')->name('conversations.admin_show');
     });
 
+    // setting routes
+    Route::get('/settings/about-us', [AboutUsController::class, 'index'])->name('settings.about-us');
+    Route::post('/settings/about-us', [AboutUsController::class, 'update'])->name('settings.about-us.update');
+
     // product Queries show on Admin panel
     Route::controller(ProductQueryController::class)->group(function () {
         Route::get('/product-queries', 'index')->name('product_query.index');
@@ -639,12 +644,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
 
     // Size Chart
     Route::resource('size-charts', SizeChartController::class);
-    Route::get('/size-charts/destroy/{id}',  [SizeChartController::class, 'destroy'])->name('size-charts.destroy');
-    Route::post('size-charts/get-combination',   [SizeChartController::class, 'get_combination'])->name('size-charts.get-combination');
+    Route::get('/size-charts/destroy/{id}', [SizeChartController::class, 'destroy'])->name('size-charts.destroy');
+    Route::post('size-charts/get-combination', [SizeChartController::class, 'get_combination'])->name('size-charts.get-combination');
 
     // Measurement Points
     Route::resource('measurement-points', MeasurementPointsController::class);
-    Route::get('/measurement-points/destroy/{id}',  [MeasurementPointsController::class, 'destroy'])->name('measurement-points.destroy');
+    Route::get('/measurement-points/destroy/{id}', [MeasurementPointsController::class, 'destroy'])->name('measurement-points.destroy');
 
     // Addon
     Route::resource('addons', AddonController::class);
@@ -701,9 +706,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
         Route::post('/areas/status', 'updateStatus')->name('areas.status');
     });
 
-     Route::controller(AddressController::class)->group(function () {
+    Route::controller(AddressController::class)->group(function () {
         Route::post('/get-states', 'getStates')->name('admin.get-state');
-     });
+    });
 
     Route::view('/system/update', 'backend.system.update')->name('system_update');
     Route::view('/system/server-status', 'backend.system.server_status')->name('system_server');
@@ -762,7 +767,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
     Route::controller(NewUpdateController::class)->group(function () {
         Route::post('/update', 'step0')->name('new_update');
     });
-    
+
     Route::controller(PickupController::class)->group(function () {
         Route::get('/pickup-address-list', 'index')->name('pickup_address.index');
         Route::get('/pickup-address-create', 'create')->name('pickup_address.create');

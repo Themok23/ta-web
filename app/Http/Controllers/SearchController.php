@@ -62,7 +62,7 @@ class SearchController extends Controller
         foreach ($colors as $color) {
             // $color->product_count = Product::where('colors', 'like', '%' . $color->code . '%')
             // ->count();
-            $productsColor =  Product::where('colors', 'like', '%' . $color->code . '%');
+            $productsColor = Product::where('colors', 'like', '%' . $color->code . '%');
             $productsColor = filter_products($productsColor);
             $color->product_count = $productsColor->count();
         }
@@ -164,7 +164,6 @@ class SearchController extends Controller
         }
 
         $products = Product::where($conditions);
-
         // return "working";
 
         if ($category_id != null) {
@@ -196,9 +195,9 @@ class SearchController extends Controller
 
         $categories = $allCategories;
         // return $categories;
-        
-       $preorder_categories=[];
-       if (addon_is_activated('preorder')) {
+
+        $preorder_categories = [];
+        if (addon_is_activated('preorder')) {
             // ################# preorder category start here #################
 
             $preorder_products = PreorderProduct::where('is_published', 1);
@@ -309,14 +308,14 @@ class SearchController extends Controller
         $category_list = $request->categories ?? [];
         $category_ids = array_map(function ($str) {
             preg_match('/\d+/', $str, $matches);
-            return isset($matches[0]) ? (int)$matches[0] : null;
+            return isset($matches[0]) ? (int) $matches[0] : null;
         }, $category_list);
         $category_list = array_filter($category_ids, fn($v) => $v !== null);
 
         $category_list_preorder = $request->categories_preorder ?? [];
         $category_ids2 = array_map(function ($str) {
             preg_match('/\d+/', $str, $matches);
-            return isset($matches[0]) ? (int)$matches[0] : null;
+            return isset($matches[0]) ? (int) $matches[0] : null;
         }, $category_list_preorder);
         $category_list_preorder = array_filter($category_ids2, fn($v) => $v !== null);
 
@@ -341,7 +340,7 @@ class SearchController extends Controller
 
         foreach ($attributes as $attribute) {
 
-            $attribute->product_count = Product::whereJsonContains('attributes',  (string) $attribute->id)->count();
+            $attribute->product_count = Product::whereJsonContains('attributes', (string) $attribute->id)->count();
 
             foreach ($attribute->attribute_values as $value) {
                 $value->product_count = Product::where('choice_options', 'like', '%"attribute_id":"' . $attribute->id . '"%')
@@ -360,7 +359,8 @@ class SearchController extends Controller
             $products = PreorderProduct::where('is_published', 1);
 
             if (count($category_list_preorder) > 0) {
-                $products_ids = PreorderProductCategory::whereIn('category_id', $category_list_preorder)->pluck('preorder_product_id')->toArray();;
+                $products_ids = PreorderProductCategory::whereIn('category_id', $category_list_preorder)->pluck('preorder_product_id')->toArray();
+                ;
 
                 $products->whereIn('id', $products_ids);
             }
@@ -470,7 +470,7 @@ class SearchController extends Controller
             $products = $products->with('taxes')->paginate(12)->appends(request()->query());
 
             $product_type = "preorder_product";
-            $product_html =  view('frontend.product_listing_products', compact('products', 'product_type'))->render();
+            $product_html = view('frontend.product_listing_products', compact('products', 'product_type'))->render();
 
             $pagination_html = view('frontend.product_listing_pagination', [
                 'current' => $products->currentPage(),
@@ -497,7 +497,8 @@ class SearchController extends Controller
         $products = Product::where($conditions);
 
         if (count($category_list) > 0) {
-            $products_ids = ProductCategory::whereIn('category_id', $category_list)->pluck('product_id')->toArray();;
+            $products_ids = ProductCategory::whereIn('category_id', $category_list)->pluck('product_id')->toArray();
+            ;
 
             $products = Product::whereIn('id', $products_ids);
         }
@@ -577,7 +578,7 @@ class SearchController extends Controller
 
         $products = filter_products($products)->with('taxes')->paginate(24)->appends(request()->query());
 
-        $product_html =  view('frontend.product_listing_products', compact('products'))->render();
+        $product_html = view('frontend.product_listing_products', compact('products'))->render();
         $pagination_html = view('frontend.product_listing_pagination', [
             'current' => $products->currentPage(),
             'last' => $products->lastPage()
@@ -598,7 +599,29 @@ class SearchController extends Controller
 
     public function listingByCategory(Request $request, $category_slug)
     {
-        $category = Category::where('slug', $category_slug)->first();
+                $mainCategory = Category::where('slug', $category_slug)->first();
+
+        $categoryId = Category::where('slug', $category_slug)->first()->id;
+        $levelOneCategories = Category::where('parent_id', $categoryId)->get();
+        return view('frontend.level_one_categories', compact('mainCategory','levelOneCategories'));
+        // if ($category != null) {
+        //     return $this->index($request, $category->id);
+        // }
+        abort(404);
+    }
+    public function listingByCategory2(Request $request, $categoryId)
+    {
+        $levelTwoCategories = Category::where('parent_id', $categoryId)->get();
+        return view('frontend.level_Two_categories', compact('levelTwoCategories'));
+        // if ($category != null) {
+        //     return $this->index($request, $category->id);
+        // }
+        abort(404);
+    }
+
+    public function levelTwoProducts(Request $request, $categoryId)
+    {
+        $category = Category::where('id', $categoryId)->first();
         if ($category != null) {
             return $this->index($request, $category->id);
         }
@@ -665,7 +688,7 @@ class SearchController extends Controller
         $shops = Shop::whereIn('user_id', verified_sellers_id())->where('name', 'like', '%' . $query . '%')->get()->take(3);
 
         if (addon_is_activated('preorder')) {
-            $preorder_products =  PreorderProduct::where('is_published', 1)
+            $preorder_products = PreorderProduct::where('is_published', 1)
                 ->where(function ($queryBuilder) use ($query) {
                     $queryBuilder->where('product_name', 'like', '%' . $query . '%')
                         ->orWhere('tags', 'like', '%' . $query . '%');
@@ -681,7 +704,7 @@ class SearchController extends Controller
                 ->get();
         }
 
-        if (sizeof($keywords) > 0 || sizeof($categories) > 0 || sizeof($products) > 0 || sizeof($shops) > 0  || sizeof($preorder_products) > 0) {
+        if (sizeof($keywords) > 0 || sizeof($categories) > 0 || sizeof($products) > 0 || sizeof($shops) > 0 || sizeof($preorder_products) > 0) {
             return view('frontend.partials.search_content', compact('products', 'categories', 'keywords', 'shops', 'preorder_products'));
         }
         return '0';
