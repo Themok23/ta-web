@@ -4,10 +4,6 @@
 .env.php
 
 /node_modules
-/public/assets
-/public/storage
-/public/uploads
-/storage/*.key
 /storage/debugbar
 /vendor
 /temp
@@ -19,9 +15,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .DS_Store
-.idea/
-/public/*
-updates/
+.idea
 composer.lock
 *.lock
 resources/lang/en.json
@@ -34,5 +28,5 @@ install.zip
 public/uploads.zip
 .env
 .env.example
-public/all
+ 
 
