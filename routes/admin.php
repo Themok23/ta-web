@@ -68,6 +68,7 @@ use App\Http\Controllers\PickupController;
 use App\Http\Controllers\ShippingBoxSizeController;
 use App\Http\Controllers\ShippingSystemController;
 use App\Http\Controllers\Admin\Setting\AboutUsController;
+use App\Http\Controllers\Admin\Setting\OurPartnersController;
 
 /*
   |--------------------------------------------------------------------------
@@ -615,11 +616,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
         Route::get('conversations', 'admin_index')->name('conversations.admin_index');
         Route::get('conversations/{id}/show', 'admin_show')->name('conversations.admin_show');
     });
-
     // setting routes
     Route::get('/settings/about-us', [AboutUsController::class, 'index'])->name('settings.about-us');
     Route::post('/settings/about-us', [AboutUsController::class, 'update'])->name('settings.about-us.update');
-
+    Route::get('/settings/our-partners', [OurPartnersController::class, 'index'])->name('settings.our-partners');
+    Route::post('/settings/our-partners', [OurPartnersController::class, 'update'])->name('settings.our-partners.update');
     // product Queries show on Admin panel
     Route::controller(ProductQueryController::class)->group(function () {
         Route::get('/product-queries', 'index')->name('product_query.index');
@@ -796,7 +797,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
     Route::controller(ShippingSystemController::class)->group(function () {
         Route::get('/shipping-system', 'list')->name('shipping_system');
     });
-
 });
 
 Route::get('/system/sitemap-item-add/{item}', [AdminController::class, 'SitemapItems'])->name('sitemap_item_add');

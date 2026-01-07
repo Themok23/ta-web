@@ -547,6 +547,12 @@
                     <span class="aiz-side-nav-text">{{ translate('About Us') }}</span>
                 </a>
             </li>
+            {{-- Our Partners --}}
+            <li class="aiz-side-nav-item">
+                <a class="aiz-side-nav-link" href="{{ route('settings.our-partners') }}">
+                    <span class="aiz-side-nav-text">{{ translate('Our Partners') }}</span>
+                </a>
+            </li>
 
         </ul>
     </li>

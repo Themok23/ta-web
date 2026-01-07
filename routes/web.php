@@ -428,6 +428,9 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/ourpartners', [HomeController::class, 'ourpartners'])->name('ourpartners');
+Route::get('/join_us', [HomeController::class, 'join_us'])->name('join_us');
+Route::get('/contact_us', [HomeController::class, 'contact_us'])->name('contact_us');
 
 
 Route::get('/instamojo/payment/pay-success', [InstamojoController::class, 'success'])->name('instamojo.success');
