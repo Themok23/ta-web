@@ -1,680 +1,843 @@
 @extends('frontend.layouts.app')
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 @section('content')
 <style>
-    :root {
-        --primary-color: #E91E63;
-        --secondary-color: #FF4081;
-        --text-dark: #2C3E50;
-        --text-light: #7F8C8D;
-        --bg-light: #F8F9FA;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     body {
-        background-color: #f5f5f5;
+        overflow-x: hidden;
     }
 
-    /* Hero Section */
-    .hero-section {
+    .hero-carousel {
         position: relative;
-        height: 450px;
-        background: linear-gradient(135deg, rgba(233, 30, 99, 0.95), rgba(255, 64, 129, 0.85)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200');
-        background-size: cover;
-        background-position: center;
-        border-radius: 24px;
+        height: 100vh;
         overflow: hidden;
-        margin-bottom: 2rem;
+        background-color: #000;
+    }
+
+    .hero-carousel .carousel-item {
+        height: 100vh;
+        position: relative;
+        background-color: #000;
+    }
+
+    .hero-carousel .carousel-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+
+    .hero-carousel img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+    }
+
+    .carousel-item {
+        transition: transform 0.6s ease-in-out;
+        background-color: #000;
+    }
+
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+        background-color: #000;
+    }
+
+    .carousel-fade .carousel-item {
+        opacity: 0;
+        transition-property: opacity;
+        transform: none;
+    }
+
+    .carousel-fade .carousel-item.active,
+    .carousel-fade .carousel-item-next.carousel-item-start,
+    .carousel-fade .carousel-item-prev.carousel-item-end {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .carousel-fade .active.carousel-item-start,
+    .carousel-fade .active.carousel-item-end {
+        opacity: 0;
+        z-index: 0;
+        transition: opacity 0s 0.6s;
     }
 
     .hero-content {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        color: white;
-        padding: 3rem;
-    }
-
-    .hero-title {
-        font-size: 3rem;
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-        font-weight: 400;
-        margin-bottom: 0;
-        opacity: 0.95;
-    }
-
-    /* Floating Pink Circle Icons */
-    .floating-circle {
         position: absolute;
-        background: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        animation: float 4s ease-in-out infinite;
-    }
-
-    .circle-m-top {
-        width: 70px;
-        height: 70px;
-        top: 50px;
-        right: 180px;
-        animation-delay: 0s;
-    }
-
-    .circle-m-bottom {
-        width: 70px;
-        height: 70px;
-        bottom: 100px;
-        right: 50px;
-        animation-delay: 1.5s;
-    }
-
-    .circle-m {
-        background: var(--primary-color);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        text-align: center;
         color: white;
-        font-size: 2rem;
+        width: 90%;
+        max-width: 1200px;
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
         font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
     }
 
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-    }
-
-    /* Customer Satisfaction Card */
-    .satisfaction-card {
-        background: white;
-        border-radius: 20px;
-        padding: 2.5rem;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-        margin-bottom: 3rem;
-    }
-
-    .satisfaction-icon {
-        width: 180px;
-        height: 180px;
+    .hero-content p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        max-width: 800px;
         margin: 0 auto;
     }
 
-    .satisfaction-text h4 {
-        color: var(--primary-color);
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+    .carousel-indicators {
+        bottom: 40px;
+        z-index: 3;
+        margin-bottom: 0;
     }
 
-    .satisfaction-text p {
-        color: var(--text-light);
-        font-size: 1.1rem;
-        margin: 0;
-    }
-
-    /* Section Headers */
-    .section-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1.5rem;
-        padding: 0 5px;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin: 0;
-    }
-
-    .nav-arrows {
-        display: flex;
-        gap: 8px;
-    }
-
-    .nav-arrow {
-        width: 36px;
-        height: 36px;
+    .carousel-indicators [data-bs-target] {
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
-        background: white;
-        border: 2px solid #ddd;
+        border: 2px solid white;
+        background-color: transparent;
+        opacity: 0.7;
+        margin: 0 6px;
+        padding: 0;
+    }
+
+    .carousel-indicators .active {
+        background-color: white;
+        opacity: 1;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 3;
+        border: none;
+    }
+
+    .carousel-control-prev {
+        left: 40px;
+    }
+
+    .carousel-control-next {
+        right: 40px;
+    }
+
+    .hero-carousel:hover .carousel-control-prev,
+    .hero-carousel:hover .carousel-control-next {
+        opacity: 1;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+    }
+
+    /* Second Section Styles */
+    .customers-section {
+        padding: 100px 0 0 0;
+        background-color: #ffffff;
+        position: relative;
+    }
+
+    .customers-section .container {
+        max-width: 1200px;
+    }
+
+    .customers-section .row {
+        align-items: center;
+    }
+
+    .customers-section .image-wrapper {
+        position: relative;
+    }
+
+    .customers-section .image-wrapper img {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+    }
+
+    .customers-section .content-wrapper h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .customers-section .content-wrapper p {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .customers-section .about-link {
+        display: inline-flex;
+        align-items: center;
+        color: #007bff;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .customers-section .about-link:hover {
+        color: #0056b3;
+    }
+
+    .customers-section .about-link svg {
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .customers-section .about-link:hover svg {
+        transform: translateX(5px);
+    }
+
+    .triangle-wrapper {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    .triangle-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Categories Section */
+    .categories-section {
+        padding: 80px 0;
+        background-color: #ffffff;
+        position: relative;
+    }
+
+    .categories-section .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .categories-section .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        display: inline-block;
+        position: relative;
+    }
+
+    .categories-section .nav-arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 15px;
+    }
+
+    .categories-section .nav-arrows.left {
+        left: 0;
+    }
+
+    .categories-section .nav-arrows.right {
+        right: 0;
+    }
+
+    .categories-section .arrow-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: none;
+        background-color: #f8f9fa;
+        color: #007bff;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
     }
 
-    .nav-arrow:hover {
-        background: var(--primary-color);
-        border-color: var(--primary-color);
+    .categories-section .arrow-btn:hover {
+        background-color: #007bff;
         color: white;
     }
 
-    /* Category Cards */
-    .category-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        margin-bottom: 3rem;
+    .categories-slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .categories-wrapper {
+        display: flex;
+        gap: 25px;
+        transition: transform 0.5s ease;
+        padding: 10px 0;
     }
 
     .category-card {
+        flex: 0 0 calc(33.333% - 17px);
         position: relative;
-        border-radius: 16px;
+        border-radius: 20px;
         overflow: hidden;
-        height: 180px;
+        height: 300px;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        text-decoration: none;
+        display: block;
     }
 
     .category-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     }
 
     .category-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
+        transition: transform 0.5s ease;
     }
 
     .category-card:hover img {
-        transform: scale(1.15);
+        transform: scale(1.1);
     }
 
-    .category-overlay {
+    .category-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+        z-index: 1;
+    }
+
+    .category-card .content {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-        padding: 1.2rem 1rem;
+        padding: 25px;
+        z-index: 2;
         color: white;
     }
 
-    .category-name {
-        font-size: 1.2rem;
-        font-weight: 700;
+    .category-card .content h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    .category-card .cart-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 8px;
+        display: flex;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        transition: all 0.3s ease;
+    }
+
+    .category-card:hover .cart-icon {
+        background-color: white;
+        color: #000;
+        transform: scale(1.1);
+    }
+
+    .category-card .cart-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Gather Quality Section */
+    .gather-section {
+        position: relative;
+        padding: 0;
         margin: 0;
     }
 
-    /* Product Cards */
-    .products-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        margin-bottom: 3rem;
+    .gather-section .top-bar {
+        background: linear-gradient(135deg, #1e4d7b 0%, #2d5f8d 100%);
+        padding: 30px 0;
     }
 
-    .product-card {
-        background: white;
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        position: relative;
-    }
-
-    .product-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-
-    .product-image-container {
-        position: relative;
-        padding-top: 100%;
-        overflow: hidden;
-        background: #fafafa;
-    }
-
-    .product-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .product-card:hover .product-image {
-        transform: scale(1.1);
-    }
-
-    .product-body {
-        padding: 1rem;
-    }
-
-    .product-name {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        margin-bottom: 0.6rem;
-        height: 40px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .product-price {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-bottom: 0.3rem;
-    }
-
-    .add-cart-icon {
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-        width: 35px;
-        height: 35px;
-        background: var(--text-dark);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-    .add-cart-icon:hover {
-        background: var(--primary-color);
-        transform: scale(1.1);
-    }
-
-    /* Blue Banner */
-    .platform-banner {
-        background: linear-gradient(135deg, #2196F3, #1976D2);
-        border-radius: 20px;
-        padding: 2rem 3rem;
-        color: white;
-        margin-bottom: 3rem;
+    .gather-section .top-bar .container {
+        max-width: 1200px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
     }
 
-    .platform-content h3 {
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 0.3rem;
+    .gather-section .top-bar .left-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 
-    .platform-content p {
-        margin: 0;
-        opacity: 0.95;
+    .gather-section .top-bar .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 30px);
+        grid-template-rows: repeat(2, 30px);
+        gap: 8px;
     }
 
-    .platform-icon {
-        font-size: 3rem;
+    .gather-section .top-bar .icon-box {
+        width: 30px;
+        height: 30px;
+        border: 3px solid white;
+        border-radius: 8px;
     }
 
-    /* Quality Section */
-    .quality-section {
-        background: linear-gradient(135deg, rgba(103, 58, 183, 0.95), rgba(81, 45, 168, 0.95)), url('https://images.unsplash.com/photo-1556740758-90de374c12ad?w=1200');
-        background-size: cover;
-        background-position: center;
-        border-radius: 20px;
-        padding: 5rem 2rem;
-        text-align: center;
+    .gather-section .top-bar .icon-box:nth-child(1),
+    .gather-section .top-bar .icon-box:nth-child(4) {
+        border-radius: 50%;
+    }
+
+    .gather-section .top-bar .text-content h3 {
         color: white;
-        margin-bottom: 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .gather-section .top-bar .text-content p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+        margin: 0;
+        max-width: 450px;
+    }
+
+    .gather-section .top-bar .explore-btn {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .gather-section .top-bar .explore-btn:hover {
+        background-color: white;
+        color: #1e4d7b;
+    }
+
+    .gather-section .image-section {
         position: relative;
+        width: 100%;
+        height: 600px;
         overflow: hidden;
     }
 
-    .quality-section::before {
+    .gather-section .image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gather-section .image-section::before {
         content: '';
         position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        animation: pulse 5s ease-in-out infinite;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+        z-index: 1;
     }
 
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.5; }
-        50% { transform: scale(1.1); opacity: 0.8; }
-    }
-
-    .quality-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-        position: relative;
+    .gather-section .image-section .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 2;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        text-align: center;
+        color: white;
+        width: 90%;
+        max-width: 900px;
     }
 
-    .quality-subtitle {
-        font-size: 1.1rem;
-        opacity: 0.95;
-        position: relative;
-        z-index: 2;
+    .gather-section .image-section .overlay-text h2 {
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
     }
 
-    /* Responsive */
     @media (max-width: 992px) {
-        .category-grid,
-        .products-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .category-card {
+            flex: 0 0 calc(50% - 13px);
         }
-        
-        .hero-title {
+
+        .gather-section .top-bar .container {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .gather-section .top-bar .left-content {
+            flex-direction: column;
+        }
+
+        .gather-section .image-section .overlay-text h2 {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 45px;
+            height: 45px;
+            opacity: 0.8;
+        }
+
+        .carousel-control-prev {
+            left: 15px;
+        }
+
+        .carousel-control-next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            bottom: 20px;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+        }
+
+        .customers-section {
+            padding: 60px 0 0 0;
+        }
+
+        .customers-section .content-wrapper h2 {
             font-size: 2rem;
         }
-        
-        .hero-section {
-            height: 350px;
+
+        .customers-section .content-wrapper p {
+            font-size: 0.95rem;
         }
-        
-        .floating-circle {
+
+        .customers-section .image-wrapper {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .categories-section .section-header h2 {
+            font-size: 2rem;
+        }
+
+        .categories-section .nav-arrows {
             display: none;
         }
-    }
 
-    @media (max-width: 576px) {
-        .hero-content {
-            padding: 2rem;
+        .category-card {
+            flex: 0 0 100%;
         }
-        
-        .section-title {
-            font-size: 1.3rem;
+
+        .categories-section {
+            padding: 50px 0;
         }
-        
-        .quality-title {
-            font-size: 1.8rem;
+
+        .gather-section .top-bar {
+            padding: 20px 15px;
         }
-        
-        .platform-banner {
-            flex-direction: column;
-            text-align: center;
-            gap: 1rem;
+
+        .gather-section .top-bar .text-content h3 {
+            font-size: 1.2rem;
+        }
+
+        .gather-section .top-bar .text-content p {
+            font-size: 0.85rem;
+        }
+
+        .gather-section .image-section {
+            height: 300px;
+        }
+
+        .gather-section .image-section .overlay-text h2 {
+            font-size: 2rem;
         }
     }
 </style>
 
-@php 
-    $lang = get_system_language()->code;
-    
-    // Get real categories from data
-    $main_categories = isset($featured_categories) ? $featured_categories->where('level', 0)->take(4) : collect();
-    
-    // Mock products data for display
-    $display_products = [
-        ['name' => 'Fresh Organic Bread', 'price' => '$12.00', 'image' => 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400'],
-        ['name' => 'Artisan Sourdough', 'price' => '$12.00', 'image' => 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400'],
-        ['name' => 'Whole Wheat Bread', 'price' => '$6.00', 'image' => 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400'],
-        ['name' => 'French Baguette', 'price' => '$12.00', 'image' => 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400'],
-    ];
-@endphp
+<!-- Carousel Section -->
+<div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
 
-<div class="container">
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <div>
-                <h1 class="hero-title">Connecting Markets,<br>Delivering Value</h1>
-                <p class="hero-subtitle">Discover amazing products at unbeatable prices</p>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{{ static_asset('assets/img/firstCarousal.jpg') }}" class="d-block w-100" alt="Slide 1">
+            <div class="hero-content">
+                <h1>Connecting Markets, Delivering Value.</h1>
+                <p>From food and beverages to raw materials and recycled goods – Trades Axis bridges global demand and supply with precision, trust, and expertise.</p>
             </div>
         </div>
-        
-        <!-- Floating M Circles -->
-        <div class="floating-circle circle-m-top circle-m">
-            <span>M</span>
-        </div>
-        <div class="floating-circle circle-m-bottom circle-m">
-            <span>M</span>
-        </div>
-    </section>
 
-    <!-- Customer Satisfaction Card -->
-    <div class="row mb-4">
-        <div class="col-lg-10 mx-auto">
-            <div class="satisfaction-card">
-                <div class="row align-items-center">
-                    <div class="col-md-5 text-center mb-3 mb-md-0">
-                        <div class="satisfaction-icon">
-                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Laptop/Screen -->
-                                <rect x="40" y="60" width="120" height="80" rx="5" fill="#E3F2FD" stroke="#2196F3" stroke-width="3"/>
-                                <rect x="50" y="70" width="100" height="60" fill="#fff"/>
-                                <line x1="90" y1="140" x2="90" y2="155" stroke="#2196F3" stroke-width="3"/>
-                                <line x1="110" y1="140" x2="110" y2="155" stroke="#2196F3" stroke-width="3"/>
-                                <rect x="70" y="155" width="60" height="5" rx="2" fill="#2196F3"/>
-                                
-                                <!-- People -->
-                                <circle cx="70" cy="95" r="8" fill="#E91E63"/>
-                                <rect x="65" y="105" width="10" height="15" rx="2" fill="#E91E63"/>
-                                
-                                <circle cx="100" cy="95" r="8" fill="#2196F3"/>
-                                <rect x="95" y="105" width="10" height="15" rx="2" fill="#2196F3"/>
-                                
-                                <circle cx="130" cy="95" r="8" fill="#FFC107"/>
-                                <rect x="125" y="105" width="10" height="15" rx="2" fill="#FFC107"/>
-                                
-                                <!-- Chart on screen -->
-                                <polyline points="60,90 70,85 80,95 90,80 100,90 110,85" fill="none" stroke="#4CAF50" stroke-width="2"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="col-md-7 satisfaction-text">
-                        <h4>Make your customers happy</h4>
-                        <p>by giving the best products.</p>
-                    </div>
-                </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{{ static_asset('assets/img/firstCarousal.jpg') }}" class="d-block w-100" alt="Slide 2">
+            <div class="hero-content">
+                <h1>Connecting Markets, Delivering Value.</h1>
+                <p>From food and beverages to raw materials and recycled goods – Trades Axis bridges global demand and supply with precision, trust, and expertise.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{{ static_asset('assets/img/firstCarousal.jpg') }}" class="d-block w-100" alt="Slide 3">
+            <div class="hero-content">
+                <h1>Connecting Markets, Delivering Value.</h1>
+                <p>From food and beverages to raw materials and recycled goods – Trades Axis bridges global demand and supply with precision, trust, and expertise.</p>
             </div>
         </div>
     </div>
 
-    <!-- Categories Section -->
-    <section>
-        <div class="section-header">
-            <h2 class="section-title">Our Categories</h2>
-            <div class="nav-arrows">
-                <div class="nav-arrow">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="nav-arrow">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <div class="category-grid">
-            <a href="#" class="text-decoration-none">
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600" alt="Bakery & Bread">
-                    <div class="category-overlay">
-                        <h3 class="category-name">Bakery & Bread</h3>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="#" class="text-decoration-none">
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=600" alt="Beverages">
-                    <div class="category-overlay">
-                        <h3 class="category-name">Beverages</h3>
-                    </div>
-                </div>
-            </a>
-            
-            @if($main_categories->count() > 0)
-                @foreach($main_categories->take(2) as $category)
-                <a href="{{ route('products.category', $category->slug) }}" class="text-decoration-none">
-                    <div class="category-card">
-                        <img src="{{ isset($category->bannerImage->file_name) ? my_asset($category->bannerImage->file_name) : 'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600' }}" alt="{{ $category->getTranslation('name') }}">
-                        <div class="category-overlay">
-                            <h3 class="category-name">{{ $category->getTranslation('name') }}</h3>
-                        </div>
-                    </div>
-                </a>
-                @endforeach
-            @else
-                <a href="#" class="text-decoration-none">
-                    <div class="category-card">
-                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600" alt="Food & Beverages">
-                        <div class="category-overlay">
-                            <h3 class="category-name">Food & Beverages</h3>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="text-decoration-none">
-                    <div class="category-card">
-                        <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=600" alt="Vegetables">
-                        <div class="category-overlay">
-                            <h3 class="category-name">Vegetables</h3>
-                        </div>
-                    </div>
-                </a>
-            @endif
-        </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section>
-        <div class="section-header">
-            <h2 class="section-title">Featured Products</h2>
-            <div class="nav-arrows">
-                <div class="nav-arrow">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="nav-arrow">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <div class="products-grid">
-            @foreach($display_products as $product)
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="product-image">
-                </div>
-                <div class="product-body">
-                    <h3 class="product-name">{{ $product['name'] }}</h3>
-                    <div class="product-price">{{ $product['price'] }}</div>
-                </div>
-                <div class="add-cart-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </section>
-
-    <!-- Platform Banner -->
-    <div class="platform-banner">
-        <div class="platform-content">
-            <h3>Enjoy More Completed Trading platform</h3>
-            <p>Everything you need in one place</p>
-        </div>
-        <div class="platform-icon">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="3" width="7" height="7" rx="1" fill="white" opacity="0.9"/>
-                <rect x="3" y="13.5" width="7" height="7" rx="1" fill="white" opacity="0.9"/>
-                <rect x="13.5" y="3" width="7" height="7" rx="1" fill="white" opacity="0.9"/>
-                <rect x="13.5" y="13.5" width="7" height="7" rx="1" fill="white" opacity="0.9"/>
-            </svg>
-        </div>
-    </div>
-
-    <!-- Quality Section -->
-    <section class="quality-section">
-        <h2 class="quality-title">We Gather the highest<br>Quality Products</h2>
-        <p class="quality-subtitle">Carefully selected from the best suppliers worldwide</p>
-    </section>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
-<!-- Flash Deal Section (if exists) -->
-@php
-    $flash_deal = get_featured_flash_deal();
-@endphp
-@if ($flash_deal != null)
-<section class="mb-4" id="flash_deal">
+<!-- Customers Section -->
+<section class="customers-section">
     <div class="container">
-        <div class="d-flex flex-wrap mb-3 align-items-baseline justify-content-between">
-            <h3 class="fs-16 fs-md-20 fw-700 mb-2 mb-sm-0">
-                <span>{{ translate('Flash Sale') }}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="24" viewBox="0 0 16 24" class="ml-1">
-                    <path d="M30.953,13.695a.474.474,0,0,0-.424-.25h-4.9l3.917-7.81a.423.423,0,0,0-.028-.428.477.477,0,0,0-.4-.207H21.588a.473.473,0,0,0-.429.263L15.041,18.151a.423.423,0,0,0,.034.423.478.478,0,0,0,.4.2h4.593l-2.229,9.683a.438.438,0,0,0,.259.5.489.489,0,0,0,.571-.127L30.9,14.164a.425.425,0,0,0,.054-.469Z" transform="translate(-15 -5)" fill="#fcc201"/>
-                </svg>
-            </h3>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="image-wrapper">
+                    <img src="{{ static_asset('assets/img/secondSection.png') }}" alt="Make customers happy">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="content-wrapper">
+                    <h2>Make your customers happy by giving the best products.</h2>
+                    <p>We trade common products and food for improving your business and making sure you keep providing the highest quality.</p>
+                    <a href="#" class="about-link">
+                        About us
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {{-- <div class="triangle-wrapper">
+        <img src="{{ static_asset('assets/img/triangle.png') }}" alt="Triangle Design">
+    </div> --}}
+</section>
+
+<!-- Categories Section -->
+@if($categories && count($categories) > 0)
+<section class="categories-section">
+    <div class="container">
+        <div class="section-header">
+            @if(count($categories) > 3)
+            <div class="nav-arrows left">
+                <button class="arrow-btn" id="prevBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+            </div>
+            @endif
+            <h2>Our Categories</h2>
+            @if(count($categories) > 3)
+            <div class="nav-arrows right">
+                <button class="arrow-btn" id="nextBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            @endif
         </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-5 mb-3">
-                <a href="{{ route('flash-deal-details', $flash_deal->slug) }}">
-                    <div style="background-image: url('{{ uploaded_asset($flash_deal->banner) }}'); background-size: cover; height: 400px; border-radius: 20px;"></div>
-                </a>
-            </div>
-            <div class="col-lg-8 col-md-7">
-                @php
-                    $flash_deal_products = get_flash_deal_products($flash_deal->id);
-                @endphp
-                <div class="products-grid">
-                    @foreach ($flash_deal_products->take(4) as $flash_deal_product)
-                        @if ($flash_deal_product->product != null && $flash_deal_product->product->published != 0)
-                        <div class="product-card">
-                            <a href="{{ route('product', $flash_deal_product->product->slug) }}" class="text-decoration-none">
-                                <div class="product-image-container">
-                                    <img src="{{ get_image($flash_deal_product->product->thumbnail) }}" class="product-image" alt="{{ $flash_deal_product->product->getTranslation('name') }}">
-                                </div>
-                                <div class="product-body">
-                                    <h3 class="product-name">{{ $flash_deal_product->product->getTranslation('name') }}</h3>
-                                    <div class="product-price">{{ home_discounted_base_price($flash_deal_product->product) }}</div>
-                                </div>
-                            </a>
+        <div class="categories-slider">
+            <div class="categories-wrapper" id="categoriesWrapper">
+                @foreach($categories as $category)
+                    @php
+                        $categoryName = $category->getTranslation('name', $lang);
+                        $categoryImage = null;
+                        if($category->banner) {
+                            $categoryImage = uploaded_asset($category->banner);
+                        } elseif($category->cover_image) {
+                            $categoryImage = uploaded_asset($category->cover_image);
+                        }
+                        
+                        if(!$categoryImage) {
+                            $lowerName = strtolower($categoryName);
+                            if(str_contains($lowerName, 'food') || str_contains($lowerName, 'beverage')) {
+                                $categoryImage = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800';
+                            } elseif(str_contains($lowerName, 'vegetable') || str_contains($lowerName, 'vegtable')) {
+                                $categoryImage = 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800';
+                            } elseif(str_contains($lowerName, 'fruit')) {
+                                $categoryImage = 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=800';
+                            } elseif(str_contains($lowerName, 'meat') || str_contains($lowerName, 'fish')) {
+                                $categoryImage = 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800';
+                            } elseif(str_contains($lowerName, 'dairy')) {
+                                $categoryImage = 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=800';
+                            } elseif(str_contains($lowerName, 'bakery') || str_contains($lowerName, 'bread')) {
+                                $categoryImage = 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800';
+                            } else {
+                                $categoryImage = 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800';
+                            }
+                        }
+                        
+                        $categoryUrl = route('products.category', $category->slug);
+                    @endphp
+                    
+                    <a href="{{ $categoryUrl }}" class="category-card">
+                        <div class="cart-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                            </svg>
                         </div>
-                        @endif
-                    @endforeach
-                </div>
+                        <img src="{{ $categoryImage }}" alt="{{ $categoryName }}" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=800'">
+                        <div class="content">
+                            <h3>{{ $categoryName }}</h3>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
 </section>
 @endif
 
-<div id="todays_deal"></div>
-<div id="section_best_selling"></div>
-<div id="section_newest"></div>
-<div id="section_featured"></div>
+<!-- Gather Quality Section -->
+<section class="gather-section">
+    <div class="top-bar">
+        <div class="container">
+            <div class="left-content">
+                <div class="icon-grid">
+                    <div class="icon-box"></div>
+                    <div class="icon-box"></div>
+                    <div class="icon-box"></div>
+                    <div class="icon-box"></div>
+                </div>
+                <div class="text-content">
+                    <h3>Enjoy Most Completed Trading platform</h3>
+                    <p>Explore through our large set of Categories. Find the products you need and inquire about them.</p>
+                </div>
+            </div>
+            <a href="{{ route('categories.all') }}" class="explore-btn">Explore Categories</a>
+        </div>
+    </div>
+    
+    <div class="image-section">
+        <img src="{{ static_asset('assets/img/gather.png') }}" alt="Quality Products">
+        <div class="overlay-text">
+            <h2>We Gather the highest Quality Products</h2>
+        </div>
+    </div>
+</section>
 
-@endsection
-
-@section('script')
+@if(count($categories) > 3)
 <script>
-    // Add any necessary JavaScript here
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('Homepage loaded successfully');
+        const wrapper = document.getElementById('categoriesWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if(wrapper && prevBtn && nextBtn) {
+            let currentIndex = 0;
+            
+            setTimeout(() => {
+                const firstCard = wrapper.querySelector('.category-card');
+                if(firstCard) {
+                    const cardWidth = firstCard.offsetWidth + 25;
+                    
+                    nextBtn.addEventListener('click', () => {
+                        const maxScroll = wrapper.scrollWidth - wrapper.parentElement.offsetWidth;
+                        if (currentIndex < maxScroll) {
+                            currentIndex += cardWidth;
+                            if (currentIndex > maxScroll) currentIndex = maxScroll;
+                            wrapper.style.transform = `translateX(-${currentIndex}px)`;
+                        }
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            currentIndex -= cardWidth;
+                            if (currentIndex < 0) currentIndex = 0;
+                            wrapper.style.transform = `translateX(-${currentIndex}px)`;
+                        }
+                    });
+                }
+            }, 100);
+        }
     });
 </script>
+@endif
+
 @endsection
