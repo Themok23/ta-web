@@ -2,7 +2,7 @@
 
 @php
     use App\Models\AboutUs;
-    
+
     $hero = AboutUs::where('key', 'hero')->first();
     $mission = AboutUs::where('key', 'mission')->first();
     $vision = AboutUs::where('key', 'vision')->first();
@@ -13,7 +13,7 @@
        WHO WE ARE PAGE STYLE
     ======================== */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    
+
     .who-we-are-page {
         background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         min-height: 100vh;
@@ -80,9 +80,9 @@
         content: '';
         position: absolute;
         inset: 0;
-        border: 2px solid rgba(246, 95, 95, 0.3);
+        border: 2px solid rgba(95, 110, 246, 0.3);
         clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
-        box-shadow: 0 8px 32px rgba(246, 95, 95, 0.12);
+        box-shadow: 0 8px 32px rgba(95, 98, 246, 0.12);
         border-radius: 16px;
     }
 
@@ -134,7 +134,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(246, 95, 95, 0.08) 0%, rgba(232, 59, 59, 0.05) 100%);
+        background: linear-gradient(135deg, rgba(95, 128, 246, 0.08) 0%, rgba(59, 102, 232, 0.05) 100%);
         clip-path: polygon(0% 0%, 100% 0%, 88% 100%, 12% 100%);
         z-index: 1;
         border-radius: 16px;
@@ -153,9 +153,9 @@
         content: '';
         position: absolute;
         inset: 0;
-        border: 2px solid rgba(246, 95, 95, 0.3);
+        border: 2px solid rgba(95, 123, 246, 0.3);
         clip-path: polygon(0% 0%, 100% 0%, 88% 100%, 12% 100%);
-        box-shadow: 0 8px 32px rgba(246, 95, 95, 0.12);
+        box-shadow: 0 8px 32px rgba(95, 95, 246, 0.12);
         border-radius: 16px;
     }
 
@@ -223,7 +223,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(246, 95, 95, 0.2) 0%, rgba(232, 59, 59, 0.1) 100%);
+        background: linear-gradient(135deg, rgba(95, 110, 246, 0.2) 0%, rgba(59, 65, 232, 0.1) 100%);
         opacity: 0;
         transition: opacity 0.4s ease;
         z-index: 1;
@@ -231,7 +231,7 @@
 
     .vision-image-item:hover {
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(246, 95, 95, 0.25);
+        box-shadow: 0 20px 40px rgba(95, 115, 246, 0.25);
     }
 
     .vision-image-item:hover::before {
@@ -403,27 +403,29 @@
 @section('content')
     <div class="who-we-are-page">
         <div class="container">
-            
+
             {{-- Hero Section --}}
             <div class="who-hero">
                 <h1>{{ $hero && isset($hero->value['title']) ? $hero->value['title'] : 'Who We Are' }}</h1>
-                
+
                 <p class="who-hero-subtitle">
                     {{ $hero && isset($hero->value['subtitle']) ? $hero->value['subtitle'] : 'Trades Axis was founded as an extension of our sister distribution business, which has been thriving in the regional market since 20XX. Our evolution from the import-export field reflects our ongoing commitment to expand our value chain and deliver excellence in every market we serve.' }}
                 </p>
-                
+
                 {{-- Trapezoid Container with Illustration --}}
                 <div class="trapezoid-container">
                     <div class="trapezoid-border"></div>
                     <div class="trapezoid-content">
                         @if($hero && isset($hero->value['image']) && $hero->value['image'])
-                            <img src="{{ asset($hero->value['image']) }}" 
-                                 alt="Who We Are" 
+                            <img src="{{ asset($hero->value['image']) }}"
+                                 alt="Who We Are"
                                  class="hero-illustration"
                                  onerror="this.src='https://via.placeholder.com/600x400?text=Who+We+Are+Illustration'">
+
+
                         @else
-                            <img src="{{ static_asset('assets/img/who-we-are-illustration.svg') }}" 
-                                 alt="Who We Are" 
+                            <img src="{{ asset('assets/img/about/60e4d4135fac5d6e76b09f98b4a872dfa0909dfb.png') }}"
+                                 alt="Who We Are"
                                  class="hero-illustration"
                                  onerror="this.src='https://via.placeholder.com/600x400?text=Who+We+Are+Illustration'">
                         @endif
@@ -455,11 +457,11 @@
                         @foreach($vision->value['images'] as $index => $image)
                             <div class="vision-image-item">
                                 @if($image)
-                                    <img src="{{ asset($image) }}" 
+                                    <img src="{{ asset($image) }}"
                                          alt="Team Member {{ $index + 1 }}"
                                          onerror="this.src='https://via.placeholder.com/300x300?text=Team+{{ $index + 1 }}'">
                                 @else
-                                    <img src="{{ static_asset('assets/img/vision/team'.($index+1).'.jpg') }}" 
+                                    <img src="{{ static_asset('assets/img/vision/team'.($index+1).'.jpg') }}"
                                          alt="Team Member {{ $index + 1 }}"
                                          onerror="this.src='https://via.placeholder.com/300x300?text=Team+{{ $index + 1 }}'">
                                 @endif
@@ -469,14 +471,14 @@
                         {{-- Default 4 images if no data --}}
                         @for($i = 1; $i <= 4; $i++)
                             <div class="vision-image-item">
-                                <img src="{{ static_asset('assets/img/vision/team'.$i.'.jpg') }}" 
+                                <img src="{{ static_asset('assets/img/vision/team'.$i.'.jpg') }}"
                                      alt="Team Member {{ $i }}"
                                      onerror="this.src='https://via.placeholder.com/300x300?text=Team+{{ $i }}'">
                             </div>
                         @endfor
                     @endif
                 </div>
-                
+
                 <div class="vision-content">
                     <h2>{{ $vision && isset($vision->value['title']) ? $vision->value['title'] : 'Our Vision' }}</h2>
                     <p>

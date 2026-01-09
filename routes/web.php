@@ -22,6 +22,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Payment\AamarpayController;
 use App\Http\Controllers\Payment\AuthorizenetController;
 use App\Http\Controllers\Payment\BkashController;
@@ -99,7 +100,7 @@ Route::controller(AizUploadController::class)->group(function () {
 Route::group(['middleware' => ['prevent-back-history','handle-demo-login']], function () {
     Auth::routes(['verify' => true]);
 });
-
+//header show category
 // Login
 Route::controller(LoginController::class)->group(function () {
     Route::get('/logout', 'logout');
@@ -122,7 +123,7 @@ Route::controller(ShopController::class)->group(function () {
     Route::post('/shop/registration/verification-code-send', 'sendRegVerificationCode')->name('shop-reg.verification_code_send');
     Route::get('/shop/registration/verify-code/{id}', 'regVerifyCode')->name('shop-reg.verify_code');
     Route::post('/shop/registration/verification-code-confirmation', 'regVerifyCodeConfirmation')->name('shop-reg.verify_code_confirmation');
-    
+
 });
 
 Route::controller(HomeController::class)->group(function () {
@@ -423,13 +424,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::controller(NoteController::class)->group(function () {
         Route::post('/get-notes', 'getNotes')->name('get_notes');
         Route::get('/get-single-note/{id}', 'getSingleNote')->name('get-single-note');
-        
+
     });
 });
 
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/ourpartners', [HomeController::class, 'ourpartners'])->name('ourpartners');
 Route::get('/join_us', [HomeController::class, 'join_us'])->name('join_us');
+Route::post('/partner',  [PartnerController::class, 'store'])
+    ->name('partner.store');
 Route::get('/contact_us', [HomeController::class, 'contact_us'])->name('contact_us');
 
 
