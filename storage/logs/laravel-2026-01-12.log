@@ -2279,3 +2279,7 @@
 [stacktrace]
 #0 {main}
 "} 
+[2026-01-12 18:51:26] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/Laravel_projects/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
