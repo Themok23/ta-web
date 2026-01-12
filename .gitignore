@@ -5,6 +5,7 @@
 
 /node_modules
 /storage/debugbar
+storage/logs
 /vendor
 /temp
 /.idea
@@ -28,5 +29,5 @@ install.zip
 public/uploads.zip
 .env
 .env.example
- 
+
 

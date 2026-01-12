@@ -2195,3 +2195,83 @@
 [stacktrace]
 #0 {main}
 "} 
+[2026-01-12 19:53:51] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:53:51] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:54:49] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:55:49] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:56:49] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:57:28] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:57:28] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:58:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 19:59:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:00:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:01:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:02:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:03:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:04:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:05:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:06:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:07:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:08:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:09:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-01-12 20:10:27] local.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at G:/ta-web/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
