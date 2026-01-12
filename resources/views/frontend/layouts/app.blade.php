@@ -291,7 +291,7 @@
                             </button>
                         </div>
                     </div>
-                @endif                  
+                @endif
             @else
                 <div class="mb-3 custom-alert-box removable-session d-none" data-key="custom-alert-box-{{ $custom_alert->id }}" data-value="removed" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
                     <div class="rounded-0 position-relative" style="background: {{ $custom_alert->background_color }};">
@@ -330,7 +330,7 @@
                             ->exists();
             $showPopup = $hasUnreviewed;
             }else{
-              $showPopup= false;  
+              $showPopup= false;
             }
         }
         @endphp
@@ -452,7 +452,7 @@
     a[aria-label="Go to GetButton.io website"] {
         display: none !important;
     }
-    
+
 </style>
 
     <script>
@@ -681,7 +681,7 @@
             });
         }
 
-       
+
 
         function showReviewImageModal(imageUrl, imagesJson) {
             try {
@@ -816,14 +816,14 @@
                 $('.c-preloader').show();
                 $('#addToCart-modal-body').html('<div class="text-center p-5"><div class="c-preloader"></div></div>');
                 $('#modal-size').removeClass('modal-lg');
-                $('#addToCart').modal('show'); 
+                $('#addToCart').modal('show');
 
                 $.ajax({
                     type: "POST",
                     url: '{{ route('cart.addToCart') }}',
                     data: formData,
                     success: function(data){
-                        $('#addToCart .c-preloader').hide(); 
+                        $('#addToCart .c-preloader').hide();
 
                         if (data && data.modal_view) {
                             $('#addToCart-modal-body').html(data.modal_view);
@@ -1077,7 +1077,7 @@
                 }
             }
         </script>
-        
+
     @endif
 
     @if (get_setting('header_element') == 5 || get_setting('header_element') == 6)
@@ -1159,7 +1159,7 @@
 
 
         function startRandomAlerts() {
-            const min = parseInt(`{{ get_setting('sale_alert_min_time') }}`)  * 1000; 
+            const min = parseInt(`{{ get_setting('sale_alert_min_time') }}`)  * 1000;
             const max = parseInt(`{{ get_setting('sale_alert_max_time') }}`)  * 1000;
             const randomDelay = Math.random() * (max - min) + min;
 
