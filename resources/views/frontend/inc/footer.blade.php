@@ -113,20 +113,40 @@
     </div>
 </section>
 
+@php
+    use App\Models\Footer;
+
+    $branding = Footer::where('key', 'branding')->first();
+    $social = Footer::where('key', 'social')->first();
+    $contact = Footer::where('key', 'contact')->first();
+@endphp
+
 <section class="footer-section">
     <div class="footer-container">
         <div class="footer-top">
             <div class="footer-left">
                 <div class="logo">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#3b9df8" />
-                        <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#3b9df8" />
-                    </svg>
-                    <span class="logo-text"><span class="trades">TRADES</span><span class="axis">AXIS</span></span>
+                    @if ($branding && isset($branding->value['logo_image']) && $branding->value['logo_image'])
+                        <img src="{{ asset($branding->value['logo_image']) }}" alt="Logo" style="height: 40px;">
+                    @else
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#3b9df8" />
+                            <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#3b9df8" />
+                        </svg>
+                    @endif
+                    <span class="logo-text">
+                        <span class="trades">{{ $branding->value['logo_text_trades'] ?? 'TRADES' }}</span>
+                        <span class="axis">{{ $branding->value['logo_text_axis'] ?? 'AXIS' }}</span>
+                    </span>
                 </div>
-                <p class="tagline">Complete system for your eCommerce business</p>
-                <p class="newsletter-text">Subscribe to our newsletter for regular updates about Offers, Coupons & more
+
+                <p class="tagline">{{ $branding->value['tagline'] ?? 'Complete system for your eCommerce business' }}
                 </p>
+
+                <p class="newsletter-text">
+                    {{ $branding->value['newsletter_text'] ?? 'Subscribe to our newsletter for regular updates about Offers, Coupons & more' }}
+                </p>
+
                 <form class="newsletter-form">
                     <input type="email" placeholder="Your Email Address" required>
                     <button type="submit">Subscribe</button>
@@ -137,35 +157,44 @@
                 <div class="social-section">
                     <h3>FOLLOW US</h3>
                     <div class="social-icons">
-                        <a href="#" class="social-icon facebook">
+                        <a href="{{ $social->value['facebook'] ?? '#' }}" class="social-icon facebook"
+                            target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18"
                                 height="18" fill="currentColor">
                                 <path
                                     d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
                             </svg>
                         </a>
-                        <a href="#" class="social-icon twitter">
+
+                        <a href="{{ $social->value['twitter'] ?? '#' }}" class="social-icon twitter"
+                            target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18"
                                 height="18" fill="currentColor">
                                 <path
                                     d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
                             </svg>
                         </a>
-                        <a href="#" class="social-icon instagram">
+
+                        <a href="{{ $social->value['instagram'] ?? '#' }}" class="social-icon instagram"
+                            target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18"
                                 height="18" fill="currentColor">
                                 <path
                                     d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                             </svg>
                         </a>
-                        <a href="#" class="social-icon youtube">
+
+                        <a href="{{ $social->value['youtube'] ?? '#' }}" class="social-icon youtube"
+                            target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="20"
                                 height="20" fill="currentColor">
                                 <path
                                     d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
                             </svg>
                         </a>
-                        <a href="#" class="social-icon linkedin">
+
+                        <a href="{{ $social->value['linkedin'] ?? '#' }}" class="social-icon linkedin"
+                            target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18"
                                 height="18" fill="currentColor">
                                 <path
@@ -173,7 +202,6 @@
                             </svg>
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -198,12 +226,13 @@
                 <div class="footer-column">
                     <h3>CONTACTS</h3>
                     <div class="contact-info">
-                        <p class="contact-label">Address</p>
-                        <p class="contact-value">Demo Address</p>
+                        <pclass="contact-label">Address</pclass=>
+                        <p class="contact-value">{{ $contact->value['address'] ?? 'Demo Address' }}</p>
                         <p class="contact-label">Phone</p>
-                        <p class="contact-value">123456789</p>
+                        <p class="contact-value">{{ $contact->value['phone'] ?? '123456789' }}</p>
+
                         <p class="contact-label">Email</p>
-                        <p class="contact-value">demo.example@gmail.com</p>
+                        <p class="contact-value">{{ $contact->value['email'] ?? 'demo.example@gmail.com' }}</p>
                     </div>
                 </div>
 
@@ -224,281 +253,280 @@
             </div>
         </div>
     </div>
-</section>
 
-<style>
-    .footer-section {
-        background-color: #2c2c3e;
-        color: #fff;
-        padding: 60px 20px 40px;
-    }
+    <style>
+        .footer-section {
+            background-color: #2c2c3e;
+            color: #fff;
+            padding: 60px 20px 40px;
+        }
 
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .social-icon svg {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-    }
+        .social-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
 
-    .social-icon.youtube svg {
-        width: 20px;
-        height: 20px;
-    }
+        .social-icon.youtube svg {
+            width: 20px;
+            height: 20px;
+        }
 
-    .footer-top {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 60px;
-        gap: 40px;
-        flex-wrap: wrap;
-    }
-
-    .footer-left {
-        flex: 1;
-        max-width: 500px;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .logo svg {
-        width: 30px;
-        height: 30px;
-    }
-
-    .logo-text {
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
-
-    .logo-text .trades,
-    .logo-text .axis {
-        color: #fff;
-    }
-
-    .logo-text .axis {
-        font-weight: 400;
-    }
-
-    .tagline {
-        color: #b8b8c7;
-        margin-bottom: 25px;
-        font-size: 14px;
-    }
-
-    .newsletter-text {
-        color: #fff;
-        margin-bottom: 20px;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .newsletter-form {
-        display: flex;
-        gap: 0;
-    }
-
-    .newsletter-form input {
-        flex: 1;
-        padding: 12px 20px;
-        border: 1px solid #404052;
-        background-color: transparent;
-        color: #fff;
-        outline: none;
-        font-size: 14px;
-    }
-
-    .newsletter-form input::placeholder {
-        color: #777788;
-    }
-
-    .newsletter-form button {
-        padding: 12px 35px;
-        background-color: #3b9df8;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: background-color 0.3s;
-    }
-
-    .newsletter-form button:hover {
-        background-color: #2a8be6;
-    }
-
-    .footer-right {
-        display: flex;
-        align-items: flex-start;
-    }
-
-    .social-section h3 {
-        color: #b8b8c7;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .social-icons {
-        display: flex;
-        gap: 15px;
-    }
-
-    .social-icon {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        text-decoration: none;
-        transition: transform 0.3s;
-        font-size: 18px;
-    }
-
-    .social-icon:hover {
-        transform: translateY(-3px);
-    }
-
-    .social-icon.facebook {
-        background-color: #3b5998;
-    }
-
-    .social-icon.twitter {
-        background-color: #1da1f2;
-    }
-
-    .social-icon.instagram {
-        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    }
-
-    .social-icon.youtube {
-        background-color: #ff0000;
-    }
-
-    .social-icon.linkedin {
-        background-color: #0077b5;
-    }
-
-    .footer-bottom {
-        border-top: 1px solid #404052;
-        padding-top: 40px;
-    }
-
-    .footer-links {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-    }
-
-    .footer-column h3 {
-        color: #b8b8c7;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .footer-column ul {
-        list-style: none;
-    }
-
-    .footer-column ul li {
-        margin-bottom: 12px;
-    }
-
-    .footer-column ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-        transition: color 0.3s;
-    }
-
-    .footer-column ul li a:hover {
-        color: #3b9df8;
-    }
-
-    .partner-btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 25px;
-        background-color: #3b9df8;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 4px;
-        font-size: 14px;
-        font-weight: 500;
-        transition: background-color 0.3s;
-    }
-
-    .partner-btn:hover {
-        background-color: #2a8be6;
-    }
-
-    .contact-info {
-        font-size: 14px;
-    }
-
-    .contact-label {
-        color: #b8b8c7;
-        margin-top: 15px;
-        margin-bottom: 5px;
-        font-size: 13px;
-    }
-
-    .contact-label:first-child {
-        margin-top: 0;
-    }
-
-    .contact-value {
-        color: #fff;
-    }
-
-    @media (max-width: 768px) {
         .footer-top {
-            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .footer-left {
-            max-width: 100%;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .trades,
+        .logo-text .axis {
+            color: #fff;
+        }
+
+        .logo-text .axis {
+            font-weight: 400;
+        }
+
+        .tagline {
+            color: #b8b8c7;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .newsletter-text {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         .newsletter-form {
-            flex-direction: column;
+            display: flex;
+            gap: 0;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #404052;
+            background-color: transparent;
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #777788;
         }
 
         .newsletter-form button {
-            padding: 12px;
+            padding: 12px 35px;
+            background-color: #3b9df8;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #2a8be6;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .social-section h3 {
+            color: #b8b8c7;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
         .social-icons {
-            justify-content: flex-start;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-icon.facebook {
+            background-color: #3b5998;
+        }
+
+        .social-icon.twitter {
+            background-color: #1da1f2;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-icon.youtube {
+            background-color: #ff0000;
+        }
+
+        .social-icon.linkedin {
+            background-color: #0077b5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #404052;
+            padding-top: 40px;
         }
 
         .footer-links {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
         }
-    }
-</style>
 
-<script>
-    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input').value;
-        if (email) {
-            alert('Thank you for subscribing! We will send updates to: ' + email);
-            this.querySelector('input').value = '';
+        .footer-column h3 {
+            color: #b8b8c7;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
-    });
-</script>
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #3b9df8;
+        }
+
+        .partner-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #3b9df8;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .partner-btn:hover {
+            background-color: #2a8be6;
+        }
+
+        .contact-info {
+            font-size: 14px;
+        }
+
+        .contact-label {
+            color: #b8b8c7;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .contact-label:first-child {
+            margin-top: 0;
+        }
+
+        .contact-value {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-left {
+                max-width: 100%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                padding: 12px;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            if (email) {
+                alert('Thank you for subscribing! We will send updates to: ' + email);
+                this.querySelector('input').value = '';
+            }
+        });
+    </script>

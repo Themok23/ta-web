@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUs extends Model
+class Footer extends Model
 {
     use HasFactory;
-    protected $table = 'about_us';
+        protected $table = 'footers';
     protected $fillable = ['key', 'value'];
         protected $casts = [
         'value' => 'array',
     ];
-
 }
