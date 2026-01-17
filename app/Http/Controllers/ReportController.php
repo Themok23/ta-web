@@ -12,6 +12,7 @@ use App\Models\Shop;
 use App\Models\ProductQuery;
 use App\Models\Category;
 use App\Enums\InquiryStatus;
+use App\Utility\CategoryUtility;
 use Carbon\Carbon;
 use DB;
 use Auth;
@@ -159,7 +160,11 @@ class ReportController extends Controller
 
         // Filter by category
         if ($request->has('category_id') && $request->category_id) {
-            $query->where('category_id', $request->category_id);
+            $category = Category::find($request->category_id);
+            if ($category) {
+                $ids = array_merge([$category->id], CategoryUtility::children_ids($category->id, true));
+                $query->whereIn('category_id', $ids);
+            }
         }
 
         // Filter by date range

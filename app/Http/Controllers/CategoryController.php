@@ -33,6 +33,18 @@ class CategoryController extends Controller
         $sort_search =null;
         $category_tabs = ['All Categories', 'Physical Categories', 'Digital Categories'];
         $categories = Category::orderBy('order_level', 'desc');
+
+        // Optional: filter by hierarchy level for sidebar shortcuts (main/sub/child)
+        if ($request->filled('level')) {
+            if ($request->level === 'main') {
+                $categories = $categories->where('parent_id', 0);
+            } elseif ($request->level === 'sub') {
+                $categories = $categories->where('level', 1);
+            } elseif ($request->level === 'child') {
+                $categories = $categories->where('level', '>=', 2);
+            }
+        }
+
         if ($request->has('search')){
             $sort_search = $request->search;
             $categories = $categories->where('name', 'like', '%'.$sort_search.'%');

@@ -10,6 +10,16 @@
             </div>
 
             <div class="card-body">
+                <!-- Status Section -->
+                <div class="mb-3">
+                    <label class="form-label">{{ translate('Current Status') }}</label>
+                    <div>
+                        <span class="badge badge-inline {{ $query->status?->badgeClass() ?? 'badge-secondary' }}" style="font-size: 14px; padding: 8px 12px;">
+                            {{ $query->status?->label() ?? '-' }}
+                        </span>
+                    </div>
+                </div>
+
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item px-0">
                         <div class="media mb-2">
@@ -33,7 +43,7 @@
                         </p> --}}
                     </li>
                 </ul>
-                @if ((Auth::user()->id == $query->seller_id || Auth::user()->user_type == 'staff') && auth()->user()->can('reply_to_product_queries'))
+                @if ((Auth::user()->id == $query->seller_id || Auth::user()->user_type == 'staff' || Auth::user()->user_type == 'admin') && auth()->user()->can('reply_to_product_queries'))
                     <form action="{{ route('product_query.reply', $query->id) }}" method="POST">
                         @method('put')
                         @csrf
@@ -50,6 +60,15 @@
                         </div>
                     </form>
                 @endif
+
+                <!-- Additional Info -->
+                <div class="mt-3">
+                    <small class="text-muted">
+                        @if($query->expires_at)
+                            {{ translate('Expires') }}: {{ $query->expires_at->format('Y-m-d H:i') }}
+                        @endif
+                    </small>
+                </div>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ use App\Models\ProductQuery;
 use App\Models\Category;
 use App\Models\Product;
 use App\Enums\InquiryStatus;
+use App\Utility\CategoryUtility;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -30,7 +31,11 @@ class ProductQueryController extends Controller
 
         // Filter by category
         if ($request->has('category_id') && $request->category_id) {
-            $query->byCategory($request->category_id);
+            $category = Category::find($request->category_id);
+            if ($category) {
+                $ids = array_merge([$category->id], CategoryUtility::children_ids($category->id, true));
+                $query->whereIn('category_id', $ids);
+            }
         }
 
         // Filter by product

@@ -96,7 +96,7 @@
                 </li>
                 @endif
 
-                <!-- Product -->
+                <!-- Catalog (Products) -->
                 @canany(['add_new_product', 'show_all_products','show_in_house_products','show_seller_products','add_digital_product','edit_digital_product','product_bulk_import',
                         'product_bulk_export','view_product_categories','view_all_brands', 'brand_bulk_upload','view_product_attributes','view_colors','view_product_warranties', 'smart-bar', 'view_custom_label', 'view_product_reviews'])
                     <li class="aiz-side-nav-item">
@@ -113,7 +113,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="aiz-side-nav-text">{{translate('Products')}}</span>
+                            <span class="aiz-side-nav-text">{{translate('Catalog')}}</span>
                             <span class="aiz-side-nav-arrow"></span>
                         </a>
                         <!--Submenu-->
@@ -191,12 +191,34 @@
                             </li>
                             @endcan
                             @can('view_product_categories')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{route('categories.index')}}"
-                                    class="aiz-side-nav-link {{ areActiveRoutes(['categories.index', 'categories.create', 'categories.edit'])}}">
-                                    <span class="aiz-side-nav-text">{{translate('Category')}}</span>
-                                </a>
-                            </li>
+                                <li class="aiz-side-nav-item">
+                                    <a href="javascript:void(0);" class="aiz-side-nav-link">
+                                        <span class="aiz-side-nav-text">{{translate('Categories')}}</span>
+                                        <span class="aiz-side-nav-arrow"></span>
+                                    </a>
+                                    <ul class="aiz-side-nav-list level-3">
+                                        <li class="aiz-side-nav-item">
+                                            <a href="{{route('categories.index', ['level' => 'main'])}}" class="aiz-side-nav-link">
+                                                <span class="aiz-side-nav-text">{{translate('Main Categories')}}</span>
+                                            </a>
+                                        </li>
+                                        <li class="aiz-side-nav-item">
+                                            <a href="{{route('categories.index', ['level' => 'sub'])}}" class="aiz-side-nav-link">
+                                                <span class="aiz-side-nav-text">{{translate('Sub Categories')}}</span>
+                                            </a>
+                                        </li>
+                                        <li class="aiz-side-nav-item">
+                                            <a href="{{route('categories.index', ['level' => 'child'])}}" class="aiz-side-nav-link">
+                                                <span class="aiz-side-nav-text">{{translate('Child Categories')}}</span>
+                                            </a>
+                                        </li>
+                                        <li class="aiz-side-nav-item">
+                                            <a href="{{route('categories.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['categories.index', 'categories.create', 'categories.edit'])}}">
+                                                <span class="aiz-side-nav-text">{{translate('All Categories')}}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             @endcan
                             @can('set_category_wise_discount')
                             <li class="aiz-side-nav-item">
@@ -308,6 +330,38 @@
                         </ul>
                     </li>
                 @endcanany
+
+                {{-- Inquiries --}}
+                @can('view_all_product_queries')
+                    <li class="aiz-side-nav-item">
+                        <a href="#" class="aiz-side-nav-link">
+                            <div class="aiz-side-nav-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                    <path d="M2.667 2.667h10.666c.736 0 1.334.597 1.334 1.333v8c0 .736-.598 1.333-1.334 1.333H6.22L3.333 14.667V13.333H2.667c-.736 0-1.334-.597-1.334-1.333V4c0-.736.598-1.333 1.334-1.333Zm0 1.333c-.184 0-.334.149-.334.333v8c0 .184.15.333.334.333h2v1.162l1.947-1.162h6.72c.184 0 .334-.149.334-.333V4c0-.184-.15-.333-.334-.333H2.667Z" fill="#575b6a"/>
+                                </svg>
+                            </div>
+                            <span class="aiz-side-nav-text">{{ translate('Inquiries') }}</span>
+                            <span class="aiz-side-nav-arrow"></span>
+                        </a>
+                        <ul class="aiz-side-nav-list level-2">
+                            <li class="aiz-side-nav-item">
+                                <a href="{{ route('product_query.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['product_query.index','product_query.show'])}}">
+                                    <span class="aiz-side-nav-text">{{ translate('All Inquiries') }}</span>
+                                </a>
+                            </li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::New->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('New') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::Pending->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Pending') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::Responded->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Responded') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::OfferSent->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Offer sent') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::Accepted->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Accepted') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::Rejected->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Rejected') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::DealClosed->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Deal Closed') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::Cancelled->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text text-danger">{{ translate('Cancelled') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::OnHold->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text text-warning">{{ translate('On hold') }}</span></a></li>
+                            <li class="aiz-side-nav-item"><a href="{{ route('product_query.index', ['status' => \App\Enums\InquiryStatus::Expired->value]) }}" class="aiz-side-nav-link"><span class="aiz-side-nav-text">{{ translate('Expired') }}</span></a></li>
+                        </ul>
+                    </li>
+                @endcan
 
                 {{-- Preorder --}}
                 @if (addon_is_activated('preorder'))
@@ -2154,7 +2208,8 @@
                     </li>
                 @endcanany
 
-                <!-- Setup & Configurations -->
+                <!-- Setup & Configurations (hidden for now) -->
+                @if(false)
                 @canany(['general_settings','features_activation','language_setup','currency_setup','vat_&_tax_setup',
                 'pickup_point_setup','smtp_settings','payment_methods_configurations','order_configuration','file_system_&_cache_configuration',
                 'social_media_logins','facebook_chat','facebook_comment','analytics_tools_configuration','google_recaptcha_configuration','google_map_setting',
@@ -2417,8 +2472,10 @@
                     </ul>
                 </li>
                 @endcanany
+                @endif
 
-                <!-- Staffs -->
+                <!-- Staffs (hidden for now) -->
+                @if(false)
                 @canany(['view_all_staffs','view_staff_roles'])
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
@@ -2465,8 +2522,9 @@
                     </ul>
                 </li>
                 @endcanany
+                @endif
 
-                <!-- System Update & Server Status -->
+                <!-- System Settings -->
                 @canany(['system_update','server_status'])
                 <li class="aiz-side-nav-item">
                     <a href="#" class="aiz-side-nav-link">
@@ -2512,17 +2570,10 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('System')}}</span>
+                        <span class="aiz-side-nav-text">{{translate('System Settings')}}</span>
                         <span class="aiz-side-nav-arrow"></span>
                     </a>
                     <ul class="aiz-side-nav-list level-2">
-                        @can('system_update')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('system_update') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Update')}}</span>
-                            </a>
-                        </li>
-                        @endcan
                         @can('server_status')
                         <li class="aiz-side-nav-item">
                             <a href="{{route('system_server')}}" class="aiz-side-nav-link">

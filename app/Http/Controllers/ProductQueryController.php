@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\ProductQuery;
+use App\Models\Category;
+use App\Utility\CategoryUtility;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -15,17 +17,44 @@ class ProductQueryController extends Controller
     public function __construct()
     {
         // Staff Permission Check
-        $this->middleware(['permission:view_all_product_queries'])->only('admin_index');
+        $this->middleware(['permission:view_all_product_queries'])->only(['index', 'show']);
+        $this->middleware(['permission:reply_to_product_queries'])->only(['reply']);
     }
 
     /**
-     * Retrieve queries that belongs to current seller
+     * Admin: Retrieve all inquiries with filtering
      */
-    public function index()
+    public function index(Request $request)
     {
-        $admin_id = get_admin()->id;
-        $queries = ProductQuery::where('seller_id', $admin_id)->latest()->paginate(20);
-        return view('backend.support.product_query.index', compact('queries'));
+        $query = ProductQuery::with(['product', 'user', 'category']);
+
+        // Filter by status
+        if ($request->filled('status')) {
+            $query->byStatus($request->status);
+        }
+
+        // Filter by category (main category should include all descendants)
+        if ($request->filled('category_id')) {
+            $category = Category::find($request->category_id);
+            if ($category) {
+                $ids = array_merge([$category->id], CategoryUtility::children_ids($category->id, true));
+                $query->whereIn('category_id', $ids);
+            }
+        }
+
+        // Filter by product
+        if ($request->filled('product_id')) {
+            $query->byProduct($request->product_id);
+        }
+
+        $queries = $query->latest()->paginate(20);
+
+        // Get categories and products for filter dropdowns
+        $categories = Category::where('parent_id', 0)->get();
+        $productIds = ProductQuery::query()->select('product_id')->distinct()->pluck('product_id');
+        $products = Product::whereIn('id', $productIds)->get();
+
+        return view('backend.support.product_query.index', compact('queries', 'categories', 'products'));
     }
 
     /**
@@ -33,7 +62,7 @@ class ProductQueryController extends Controller
      */
     public function show($id)
     {
-        $query = ProductQuery::find(decrypt($id));
+        $query = ProductQuery::with(['product', 'user', 'category'])->findOrFail(decrypt($id));
         return view('backend.support.product_query.show', compact('query'));
     }
 
